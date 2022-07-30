@@ -118,7 +118,7 @@ def main():
 
     print('>> loading frozen model..')
     detection_graph, sess = detector_utils.load_inference_graph()
-    sess = tf.Session(graph=detection_graph)
+    sess = tf.compat.v1.Session(graph=detection_graph)
     print('>> model loaded!')
     
     _iter = 1

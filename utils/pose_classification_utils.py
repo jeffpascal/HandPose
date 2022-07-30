@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from tensorflow import Graph, Session
+from tensorflow import Graph
 import tensorflow as tf
 import os; os.environ['KERAS_BACKEND'] = 'tensorflow'
 import keras
@@ -9,7 +9,7 @@ def load_KerasGraph(path):
     print("> ====== loading Keras model for classification")
     thread_graph = Graph()
     with thread_graph.as_default():
-        thread_session = Session()
+        thread_session = tf.compat.v1.Session()
         with thread_session.as_default():
             model = keras.models.load_model(path)
             #model._make_predict_function()

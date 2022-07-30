@@ -23,7 +23,7 @@ score_thresh = 0.18
 def worker(input_q, output_q, cropped_output_q, inferences_q, cap_params, frame_processed):
     print(">> loading frozen model for worker")
     detection_graph, sess = detector_utils.load_inference_graph()
-    sess = tf.Session(graph=detection_graph)
+    sess = tf.compat.v1.Session(graph=detection_graph)
 
     print(">> loading keras model for worker")
     try:
@@ -64,7 +64,6 @@ def worker(input_q, output_q, cropped_output_q, inferences_q, cap_params, frame_
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-src',
